@@ -1,0 +1,347 @@
+<!-- //DIT/FT/1B/03
+//p2235064
+//Aye Chan Paing  -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+    <!-- Link to google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Catamaran:wght@100;400;500;600;700&family=Fira+Sans:wght@300&family=Limelight&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet">
+
+
+    <!-- BOX ICONS -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- Link to stylesheets -->
+  
+
+    <link href="http://localhost:3001/static/css/home.css" rel="stylesheet" />
+
+    <style>
+        #films-list {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cards {
+            color: #000;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .card {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+
+
+
+<body>
+    <!-- //nav -->
+    <div class="nav-wrapper">
+        <div class="container">
+            <div class="nav">
+                <a href="#" class="logo">
+                    <i class='bx bx-movie-play bx-tada main-color'></i>SP<span class="main-color">DVD</span>s
+                </a>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/films">All DVDS</a></li>
+                    <li><a href="/comingsoon">Cart</a></li>
+                    <li><a href="/comingsoon">Profile</a></li>
+                    <li><a href="/adminLogin/">Admin Log In</a></li>
+
+                </ul>
+                <!-- MOBILE MENU TOGGLE -->
+                <div class="hamburger-menu" id="hamburger-menu">
+                    <div class="hamburger"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- //end of nav -->
+
+
+    <h1 class="text-center">Search movies by title or category</h1>
+
+
+
+
+    <div class="container1">
+        <div class="row">
+            <div class="col-10 col-md-6 col-sm-12">
+                <div class="row">
+                    <div class="col-5 col-md-6 col-sm-12">
+                        <div class="input-wrap first">
+                            <div class="input-field first">
+                                <label>TITLE</label>
+                                <input type="text" placeholder="Search by title..." id="title" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-5 col-md-6 col-sm-12">
+                        <div class="input-wrap second">
+                            <div class="input-field second">
+                                <label>MAX PRICE</label>
+                                <input type="text" placeholder="Max Price..." id="maxprice" />
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-2 col-md-6 col-sm-12">
+                <div class="button">
+                    <button type="button" id="searchByNameButton" class="btn btn-primary btn-lg">Search</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container1">
+        <div class="row">
+            <div class="col-10 col-md-6 col-sm-12">
+                <div class="row">
+                    <div class="col-5 col-md-6 col-sm-12 ">
+                        <div class="input-wrap first">
+                            <div class="input-field first mt-3">
+                                <select class="form-select" id="categoryOptions"></select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-5 col-md-6 col-sm-12 ">
+                        <div class="input-wrap second">
+                            <div class="input-field second">
+                                <label>MAX PRICE</label>
+                                <input type="text" placeholder="Max Price..." id="catmaxprice" />
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-2 col-md-6 col-sm-12">
+                <div class="button">
+                    <button type="button" id="searchByCategoryButton" class="btn btn-primary btn-lg">Search</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div>
+        <h1 class="text-center"> Some films are shown here </h1>
+        <div class="row" id="films-list"></div>
+    </div>
+
+
+    <!-- FOOTER SECTION -->
+    <footer class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-4 col-md-6 col-sm-12">
+                    <div class="content">
+                        <a href="#" class="logo">
+                            <i class='bx bx-movie-play bx-tada main-color'></i>SP<span class="main-color">DVD</span>S
+                        </a>
+                        <p>
+                            SPDVD is the best site to watch movies and TV series online. </p>
+
+                        <p>So if you are looking for a safe site to watch movies online, lets give SPDVDs a try. And
+                            if
+                            you like our service, please bookmark the site and share it to your friends. Thank you
+                        </p>
+
+
+
+
+                    </div>
+                </div>
+                <div class="col-8 col-md-6 col-sm-12">
+                    <div class="row">
+                        <div class="col-3 col-md-6 col-sm-6">
+                            <div class="content">
+                                <p><b>SPDVDs</b></p>
+                                <ul class="footer-menu">
+                                    <li><a href="/">About us</a></li>
+                                    <li><a href="/">My profile</a></li>
+                                    <li><a href="/">Pricing plans</a></li>
+                                    <li><a href="/">Contacts</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-3 col-md-6 col-sm-6">
+                            <div class="content">
+                                <p><b>Admin</b></p>
+                                <ul class="footer-menu">
+                                    <li><a href="/adminLogin/">Admin Login</a></li>
+
+                                </ul>
+                            </div>
+                            <div class="social-list">
+                                <a href="#" class="social-item">
+                                    <i class="bx bxl-facebook"></i>
+                                </a>
+                                <a href="#" class="social-item">
+                                    <i class="bx bxl-twitter"></i>
+                                </a>
+                                <a href="#" class="social-item">
+                                    <i class="bx bxl-instagram"></i>
+                                </a>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- END FOOTER SECTION -->
+
+
+
+
+    <!-- JQUERY -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <!-- OWL CAROUSEL -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"
+        integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw=="
+        crossorigin="anonymous"></script>
+    <!-- APP SCRIPT -->
+    <script src="app.js"></script>
+
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="http://localhost:3001/static/js/app.js"></script>
+   
+
+    <script>
+        const baseUrl = "http://localhost:8081";
+
+        const url = window.location.toString();
+
+
+
+
+        axios.get(`${baseUrl}/category/`)
+            .then((response) => {
+                categories = response.data;
+                console.log(response.data)
+
+                categories.forEach((category, index) => {
+                    const categoryHTML = `
+                        <option value="${category.category_id}">${category.name}</option>
+                        `;
+                    console.log(categoryHTML)
+                    $("#categoryOptions").append(categoryHTML);
+                });
+            });
+
+        // fetch films
+        axios.get(`${baseUrl}/films/`)
+            .then((response) => {
+                const films = response.data;
+                console.log(films);
+                films.forEach((film) => {
+                    $("#filmslimit-list").append(`<div class="cards col-sm-6 col-lg-3 col-md-4 mb-3"><div class="card" style="width: 18rem;">
+                           
+                            
+                            <div class="card-body">
+    <a href="/dvds/${film.film_id}" class="card-title h5">${film.title}</a>
+    <p class="card-text"><small>${film.description}</small></p>
+    <a class="btn btn-outline-primary" href="/customerReview/${film.film_id}" role="button">Review</a>
+  </div> <div class="card-footer">
+    <small class="text-muted">${film.name} - ${film.rating} - ${film.release_year} </small>
+    </div>
+</div></div>
+                    `);
+                });
+            });
+
+        $(document).ready(function () {
+            console.log("A");
+            $("#searchByCategoryButton").click(function () {
+                console.log("B");
+
+
+                const category_id = $("#categoryOptions").val();
+                
+                const catmaxprice = $('#catmaxprice').val() || 0;
+                window.location.assign('http://localhost:3001/dvds/?category_id=' + category_id + "?maxprice=" + catmaxprice);
+            
+
+
+            });
+
+        });
+
+        $(document).ready(function () {
+            console.log("A");
+            $("#searchByNameButton").click(function () {
+                console.log("B");
+
+              
+                const title = $("#title").val();
+                const maxprice = $('#maxprice').val() || 0;
+
+                window.location.assign('http://localhost:3001/dvds/?title=' + title + '?maxprice=' + maxprice);
+           
+
+
+            });
+        })
+
+        axios.get(`${baseUrl}/dvdslimt`)
+            .then((response) => {
+                const films = response.data;
+                console.log(films);
+                films.forEach((film) => {
+                    $("#films-list").append(`<div class="cards col-sm-6 col-lg-3 col-md-4 mb-3"><div class="card" style="width: 18rem;">
+
+                            
+                            <div class="card-body">
+    <a href="/dvds/${film.film_id}" class="card-title h5">${film.title}</a>
+    <p class="card-text"><small>${film.description}</small></p>
+    <a class="btn btn-outline-primary" href="/customerReview/${film.film_id}" role="button">Review</a>
+  </div> <div class="card-footer">
+      <small class="text-muted">${film.rating} - ${film.release_year}</small>
+    </div>
+</div></div>
+                    `);
+                });
+            });
+
+    </script>
+
+</body>
+
+</html>

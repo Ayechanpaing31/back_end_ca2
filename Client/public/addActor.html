@@ -1,0 +1,177 @@
+<!-- //DIT/FT/1B/03
+//p2235064
+//Aye Chan Paing  -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Add Actor</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"
+        integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT"
+        crossorigin="anonymous"></script>
+    <!-- Link to stylesheets -->
+    <link href="http://localhost:3001/static/css/adminHome.css" rel="stylesheet" />
+    <!-- BOX ICONS -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+
+    <style>
+        #Logout {
+            margin-top: 15px;
+        }
+
+        body {
+            background: rgb(238, 174, 202);
+            background: radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
+        }
+
+        .container1 {
+            display: flex;
+            justify-content: center;
+        }
+
+        .row {
+            display: flex;
+            align-items: center;
+            height: 70vh;
+        }
+
+        h1 {
+            text-align: center;
+        }
+    </style>
+
+</head>
+
+<body>
+  <!-- nav bar -->
+    <div class="nav-wrapper">
+        <div class="container">
+            <div class="nav">
+                <a href="#" class="logo">
+                    <i class='bx bx-movie-play bx-tada main-color'></i>SP<span class="main-color">DVD</span>s
+                </a>
+
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="/adminHome/">Home</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Add New
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark" id="dropdown">
+                            <li><a class="dropdown-item" href="/newActor/">Actor</a></li>
+                            <li><a class="dropdown-item" href="/newCustomer/">Customer</a></li>
+                            <li><a class="dropdown-item" href="/newFilm/">Film</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="/newAdmin/">Admin</a></li>
+
+                        </ul>
+                    </li>
+                    <p><input type="button" id="Logout" value="Log Out" /></p>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+    
+    <div class="container1">
+       
+        <div class="row" style="margin-top: 2rem;">
+            <div class="col-md-8 col-xs-12">
+                <h1>Add Actor</h1>
+                <form id="create-actor-form" style="margin-top: 2rem;">
+                    <div class="form-group">
+                        <input class="form-control" id="create-post-form-firstName" rows="3" placeholder="First Name"
+                            type="text"></input>
+                        <input class="form-control mt-3" id="create-post-form-lastName" rows="3" placeholder="Last Name"
+                            type="text"></input>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add Actor</button>
+                </form>
+
+                <div id="actors">
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    
+
+      <!-- JQUERY -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="http://localhost:3001/static/js/app.js"></script>
+
+    <script>
+        // API url
+        const baseUrl = "http://localhost:8081";
+
+        $("#create-actor-form").submit((event) => {
+            // prevents the page from refreshing
+            event.preventDefault();
+
+            const requestBody = {
+                first_name: $("#create-post-form-firstName").val(),
+                last_name: $("#create-post-form-lastName").val()
+            };
+
+            
+            axios.post(`${baseUrl}/actors/`, requestBody, { headers: { Authorization: "Bearer " + localStorage.getItem("token") } })
+                .then((response) => {
+                    // reset form value.
+                    $("#create-post-form-firstName").val("");
+                    $("#create-post-form-lastName").val("");
+
+                    console.log()
+                   
+                    axios.get(`${baseUrl}/actors/${response.data.actor_id}`)
+                        .then((response) => {
+                            const actor = response.data;
+                            const actorHTML = `
+                    <div class="card" style="margin-top: 2rem;">
+                        <div class="card-body">
+                            <p class="card-text">${actor.first_name} ${actor.last_name}</p>
+                        </div>
+                        <div class="card-footer text-muted">
+                            ${actor.actor_id}
+                        </div>
+                    </div>
+                    `;
+                            $("#actors").prepend(actorHTML);
+                        })
+                        .catch((error) => {
+                            console.log(error);
+                        });
+                });
+        });
+
+        $("#Logout").click(function () {
+            localStorage.clear();
+            window.location.assign("http://localhost:3001/");
+
+        });
+
+
+    </script>
+</body>
+
+</html>

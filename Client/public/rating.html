@@ -1,0 +1,143 @@
+<!-- //DIT/FT/1B/03
+//p2235064
+//Aye Chan Paing  -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ratings</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+    <!-- Link to google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Catamaran:wght@100;400;500;600;700&family=Fira+Sans:wght@300&family=Limelight&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet">
+
+      <!-- BOX ICONS -->
+      <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+
+      <!-- Link to stylesheets -->
+
+  
+      <link href="http://localhost:3001/static/css/home.css" rel="stylesheet" />
+  
+
+    <style>
+        #films-list {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cards {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .card {
+            width: 30%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .card-text{
+            color: #000;
+        }
+
+        h2{
+            margin-top: 30px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+     <!-- //nav -->
+     <div class="nav-wrapper">
+        <div class="container">
+            <div class="nav">
+                <a href="#" class="logo">
+                    <i class='bx bx-movie-play bx-tada main-color'></i>SP<span class="main-color">DVD</span>s
+                </a>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/films">All DVDS</a></li>
+                    <li><a href="/comingsoon">Cart</a></li>
+                    <li><a href="/comingsoon">Profile</a></li>
+                    <li><a href="/adminLogin/">Admin Log In</a></li>
+
+                </ul>
+                <!-- MOBILE MENU TOGGLE -->
+                <div class="hamburger-menu" id="hamburger-menu">
+                    <div class="hamburger"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- //end of nav -->
+
+    <div>
+        <h2>Ratings for the movie</h2>
+        <div id= "ratings"></div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+<script>
+  const baseUrl = "http://localhost:8081";
+            
+
+            const url = window.location.toString();
+            const dvdID = parseInt(url.split("/").slice(-1)[0]);
+          
+            axios.get(`${baseUrl}/films/${dvdID}/rating`)
+                        .then((response) => {
+                            ratings = response.data;
+                            console.log(ratings)
+                            ratings.forEach((rating, index) => {
+                                
+
+                                const ratingHTML = `
+                                <div class="card" style="margin-top: 2rem;">
+                        <div class="card-body">
+                            <p class="card-text">${rating.rating}</p>
+                        </div>
+                        <div class="card-footer text-muted">
+                            ${rating.comment}
+                        </div>
+                    </div>
+                            
+                
+                        `;
+                                console.log(ratingHTML)
+                                $("#ratings").append(ratingHTML);
+                          
+
+                            });
+                        });
+
+
+    
+</script>
+
+</body>
+
+</html>
+
+    

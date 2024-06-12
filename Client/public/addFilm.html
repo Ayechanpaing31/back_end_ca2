@@ -1,0 +1,190 @@
+<!-- //DIT/FT/1B/03
+//p2235064
+//Aye Chan Paing  -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Add Film</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"
+        integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT"
+        crossorigin="anonymous"></script>
+    <!-- Link to stylesheets -->
+    <link href="http://localhost:3001/static/css/adminHome.css" rel="stylesheet" />
+    <!-- BOX ICONS -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+
+    <style>
+        #Logout {
+            margin-top: 15px;
+        }
+
+        body {
+            background: rgb(238, 174, 202);
+            background: radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="nav-wrapper">
+        <div class="container">
+            <div class="nav">
+                <a href="#" class="logo">
+                    <i class='bx bx-movie-play bx-tada main-color'></i>SP<span class="main-color">DVD</span>s
+                </a>
+
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="/adminHome/">Home</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Add New
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark" id="dropdown">
+                            <li><a class="dropdown-item" href="/newActor/">Actor</a></li>
+                            <li><a class="dropdown-item" href="/newCustomer/">Customer</a></li>
+                            <li><a class="dropdown-item" href="/newFilm/">Film</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="/newAdmin/">Admin</a></li>
+
+                        </ul>
+                    </li>
+                    <p><input type="button" id="Logout" value="Log Out" /></p>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+
+
+        <div class="row" style="margin-top: 2rem;">
+            <div class="col-md-8 col-xs-12">
+                <h1>Add Film</h1>
+                <form id="create-customer-form" style="margin-top: 2rem;">
+                    <div class="form-group">
+                        <input class="form-control" id="create-customer-form-title" rows="3" placeholder="Title"
+                            type="text"></input>
+                        <input class="form-control mt-3" id="create-customer-form-description" rows="3"
+                            placeholder="Description" type="text"></input>
+                        <input class="form-control mt-3" id="create-customer-form-release_year" rows="3"
+                            placeholder="release_year" type="text"></input>
+                        <input class="form-control mt-3" id="create-customer-form-language" rows="3"
+                            placeholder="language" type="text"></input>
+                        <input class="form-control mt-3" id="create-customer-form-rental_duration" rows="3"
+                            placeholder="rental_duration" type="int"></input>
+                        <input class="form-control mt-3" id="create-customer-form-rental_rate" rows="3"
+                            placeholder="rental_rate" type="decimal"></input>
+                        <input class="form-control mt-3" id="create-customer-form-length" rows="3" placeholder="Length"
+                            type="int"></input>
+                        <input class="form-control mt-3" id="create-customer-form-replacement_cost" rows="3"
+                            placeholder="replacement_cost" type="decimal"></input>
+                        <input class="form-control mt-3" id="create-customer-form-rating" rows="3"
+                            placeholder="Rating: G/PG or PG-13 or R or NC-17" type="text"></input>
+
+
+
+                        <input class="form-control mt-3" id="create-customer-form-special_features" rows="3"
+                            placeholder="Special_features: Trailers, Commentaries, Deleted Scences, Behind the Scences"
+                            type="text"></input>
+                        <input class="form-control mt-3" id="create-customer-form-actor_id" rows="3"
+                            placeholder="Actor_id: one actor only..." type="text"></input>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add Film</button>
+                </form>
+            </div>
+
+
+
+
+
+
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="http://localhost:3001/static/js/app.js"></script>
+
+
+    <script>
+        // API url
+        const baseUrl = "http://localhost:8081";
+
+
+
+        $("#create-customer-form").submit((event) => {
+            // prevents the page from refreshing
+            event.preventDefault();
+
+            const requestBody = {
+                title: $("#create-customer-form-title").val(),
+                description: $("#create-customer-form-description").val(),
+                release_year: $("#create-customer-form-release_year").val(),
+                language: $("#create-customer-form-language").val(),
+                rental_duration: $("#create-customer-form-rental_duration").val(),
+                rental_rate: $("#create-customer-form-rental_rate").val(),
+                length: $("#create-customer-form-length").val(),
+                replacement_cost: $("#create-customer-form-replacement_cost").val(),
+                rating: $("#create-customer-form-rating").val(),
+                special_features: $("#create-customer-form-special_features").val(),
+                actor_id: $("#create-customer-form-actor_id").val()
+
+            };
+
+          
+            axios.post(`${baseUrl}/film/`, requestBody, { headers: { Authorization: "Bearer " + localStorage.getItem("token") } })
+                .then((response) => {
+                    // reset form value.
+                    $("#create-customer-form-title").val(""),
+                        $("#create-customer-form-description").val(""),
+                        $("#create-customer-form-release_year").val(""),
+                        $("#create-customer-form-language").val(""),
+                        $("#create-customer-form-rental_duration").val(""),
+                        $("#create-customer-form-rental_rate").val(""),
+                        $("#create-customer-form-length").val(""),
+                        $("#create-customer-form-replacement_cost").val(""),
+                        $("#create-customer-form-rating").val(""),
+                        $("#create-customer-form-special_features").val(""),
+                        $("#create-customer-form-actor_id").val("")
+
+
+                    console.log()
+
+                    
+                });
+        });
+
+        $("#Logout").click(function () {
+            localStorage.clear();
+            window.location.assign("http://localhost:3001/");
+
+        });
+
+
+
+
+    </script>
+</body>
+
+</html>

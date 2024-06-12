@@ -1,0 +1,224 @@
+<!-- //DIT/FT/1B/03
+//p2235064
+//Aye Chan Paing  -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Add Customer</title>
+    
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"
+        integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT"
+        crossorigin="anonymous"></script>
+    <!-- Link to stylesheets -->
+    <link href="http://localhost:3001/static/css/adminHome.css" rel="stylesheet" />
+    <!-- BOX ICONS -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+
+    <style>
+        #Logout {
+            margin-top: 15px;
+        }
+
+        body {
+            background: rgb(238, 174, 202);
+            background: radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="nav-wrapper">
+        <div class="container">
+            <div class="nav">
+                <a href="#" class="logo">
+                    <i class='bx bx-movie-play bx-tada main-color'></i>SP<span class="main-color">DVD</span>s
+                </a>
+
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="/adminHome/">Home</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Add New
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-dark" id="dropdown">
+                            <li><a class="dropdown-item" href="/newActor/">Actor</a></li>
+                            <li><a class="dropdown-item" href="/newCustomer/">Customer</a></li>
+                            <li><a class="dropdown-item" href="/newFilm/">Film</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="/newAdmin/">Admin</a></li>
+
+                        </ul>
+                    </li>
+                    <p><input type="button" id="Logout" value="Log Out" /></p>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+
+
+        <div class="row" style="margin-top: 2rem;">
+            <div class="col-md-8 col-xs-12">
+                <h1>Add customer</h1>
+                <form id="create-customer-form" style="margin-top: 2rem;">
+                    <div class="form-group">
+                        <input class="form-control" id="create-customer-form-firstName" rows="3"
+                            placeholder="First Name" type="text"></input>
+                        <input class="form-control mt-3" id="create-customer-form-lastName" rows="3"
+                            placeholder="Last Name" type="text"></input>
+                        <input class="form-control mt-3" id="create-customer-form-email" rows="3" placeholder="Email"
+                            type="email"></input>
+                        <input class="form-control mt-3" id="create-customer-form-address1" rows="3"
+                            placeholder="Address Line 1" type="text"></input>
+                        <input class="form-control mt-3" id="create-customer-form-address2" rows="3"
+                            placeholder="Address Line 2" type="text"></input>
+                        <input class="form-control mt-3" id="create-customer-form-district" rows="3"
+                            placeholder="District" type="text"></input>
+                        <input class="form-control mt-3" id="create-customer-form-city" rows="3" placeholder="City"
+                            type="text"></input>
+                        <input class="form-control mt-3" id="create-customer-form-postalCode" rows="3"
+                            placeholder="Postal Code" type="text"></input>
+                        <input class="form-control mt-3" id="create-customer-form-phoneNo" rows="3"
+                            placeholder="Phone Number" type="text"></input>
+
+                        <select class="form-select" id="storeOptions"></select>
+
+                        <input class="form-control mt-3" id="create-customer-form-password" rows="3"
+                            placeholder="password" type="text"></input>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Add Customer</button>
+                </form>
+            </div>
+
+            <div class="col-md-4 col-xs-12">
+                <h1>New customer</h1>
+                <div id="customers">
+
+                </div>
+            </div>
+
+
+
+
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="http://localhost:3001/static/js/app.js"></script>
+
+
+    <script>
+        // API url
+        const baseUrl = "http://localhost:8081";
+
+        axios.get(`${baseUrl}/address/`)
+            .then((response) => {
+                stores = response.data;
+                console.log(response.data)
+
+                stores.forEach((store, index) => {
+                    const storeHTML = `
+                        <option value="${store.address_id}">${store.address} ${store.district} ${store.city} ${store.postal_code}</option>
+                        `;
+                    console.log(storeHTML)
+                    $("#storeOptions").append(storeHTML);
+                });
+            });
+
+        $("#create-customer-form").submit((event) => {
+            // prevents the page from refreshing
+            event.preventDefault();
+
+            const requestBody = {
+                first_name: $("#create-customer-form-firstName").val(),
+                last_name: $("#create-customer-form-lastName").val(),
+                email: $("#create-customer-form-email").val(),
+                address_line1: $("#create-customer-form-address1").val(),
+                address_line2: $("#create-customer-form-address2").val(),
+                district: $("#create-customer-form-district").val(),
+                city: $("#create-customer-form-city").val(),
+                postal_code: $("#create-customer-form-postalCode").val(),
+                phone: $("#create-customer-form-phoneNo").val(),
+                store_id: $("#storeOptions").val(),
+                password: $("#create-customer-form-password").val()
+
+            };
+
+            // create the post
+            axios.post(`${baseUrl}/customers/`, requestBody, { headers: { Authorization: "Bearer " + localStorage.getItem("token") } })
+                .then((response) => {
+                    // reset form value.
+                    $("#create-customer-form-firstName").val("");
+                    $("#create-customer-form-lastName").val("");
+                    $("#create-customer-form-email").val("");
+                    $("#create-customer-form-address1").val("");
+                    $("#create-customer-form-address2").val("");
+                    $("#create-customer-form-district").val("");
+                    $("#create-customer-form-city").val("");
+                    $("#create-customer-form-postalCode").val("");
+                    $("#create-customer-form-phoneNo").val("");
+
+                    $("#storeOptions").val(0);
+                    $("#create-customer-form-password").val("");
+
+
+
+                    console.log()
+
+                    axios.get(`${baseUrl}/customers/${response.data.customer_id}`)
+                        .then((response) => {
+                            const customer = response.data;
+                            const customerHTML = `
+                           
+                    <div class="card" style="margin-top: 2rem;">
+                        <div class="card-body">
+                            <p class="card-text">${customer.first_name} ${customer.last_name}</p>
+                        </div>
+                        <div class="card-footer text-muted">
+                            ${customer.customer_id}
+                        </div>
+                    </div>
+                    `;
+                            $("#customers").append(customerHTML);
+                        })
+                        .catch((error) => {
+                            console.log(error);
+                        });
+                });
+        });
+
+        $("#Logout").click(function () {
+            localStorage.clear();
+            window.location.assign("http://localhost:3001/");
+
+        });
+
+
+
+
+    </script>
+</body>
+
+</html>

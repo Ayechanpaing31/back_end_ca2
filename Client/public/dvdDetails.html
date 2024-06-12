@@ -1,0 +1,296 @@
+<!-- //DIT/FT/1B/03
+//p2235064
+//Aye Chan Paing  -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>DVD DETAILS</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+    <!-- Link to google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Catamaran:wght@100;400;500;600;700&family=Fira+Sans:wght@300&family=Limelight&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet">
+
+
+    <!-- BOX ICONS -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- Link to stylesheets -->
+
+
+    <link href="http://localhost:3001/static/css/dvdDetails.css" rel="stylesheet" />
+
+</head>
+
+<body>
+
+    <!-- //nav -->
+    <div class="nav-wrapper">
+        <div class="container">
+            <div class="nav">
+                <a href="#" class="logo">
+                    <i class='bx bx-movie-play bx-tada main-color'></i>SP<span class="main-color">DVD</span>s
+                </a>
+                <ul class="nav-menu" id="nav-menu">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/films">All DVDS</a></li>
+                    <li><a href="/comingsoon">Cart</a></li>
+                    <li><a href="/comingsoon">Profile</a></li>
+                    <li><a href="/adminLogin/">Admin Log In</a></li>
+
+                </ul>
+                <!-- MOBILE MENU TOGGLE -->
+                <div class="hamburger-menu" id="hamburger-menu">
+                    <div class="hamburger"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- //end of nav -->
+
+    <div class="container1">
+
+
+        <div class="row" style="margin-top: 2rem;">
+            <div class="col-md-8 col-xs-12">
+                <div id="dvd-profile">
+                </div>
+                <h1>Actors</h1>
+                <div id="actors">
+                </div>
+            </div>
+            <div class="col-md-4 col-xs-12">
+                <form id="create-rating-form" style="margin-top: 2rem;">
+                    <div class="form-group">
+                        <select class="form-select" id="create-rating-form-rating" aria-label="Default select example">
+                            <option selected>Rating</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                        <input class="form-control mt-3" id="create-rating-form-comment" rows="10" placeholder="Comment"
+                            type="text"></input>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit Rating</button>
+
+                    <a class="btn btn-outline-primary" id="viewRatingsButton" role="button">View Ratings</a>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER SECTION -->
+    <footer class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-4 col-md-6 col-sm-12">
+                    <div class="content">
+                        <a href="#" class="logo">
+                            <i class='bx bx-movie-play bx-tada main-color'></i>SP<span class="main-color">DVD</span>S
+                        </a>
+                        <p>
+                            SPDVD is the best site to watch movies and TV series online. </p>
+
+                        <p>So if you are looking for a safe site to watch movies online, lets give SPDVDs a try. And
+                            if
+                            you like our service, please bookmark the site and share it to your friends. Thank you
+                        </p>
+
+
+
+
+                    </div>
+                </div>
+                <div class="col-8 col-md-6 col-sm-12">
+                    <div class="row">
+                        <div class="col-3 col-md-6 col-sm-6">
+                            <div class="content">
+                                <p><b>SPDVDs</b></p>
+                                <ul class="footer-menu">
+                                    <li><a href="/">About us</a></li>
+                                    <li><a href="/">My profile</a></li>
+                                    <li><a href="/">Pricing plans</a></li>
+                                    <li><a href="/">Contacts</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-3 col-md-6 col-sm-6">
+                            <div class="content">
+                                <p><b>Admin</b></p>
+                                <ul class="footer-menu">
+                                    <li><a href="/adminLogin/">Admin Login</a></li>
+
+                                </ul>
+                            </div>
+                            <div class="social-list">
+                                <a href="#" class="social-item">
+                                    <i class="bx bxl-facebook"></i>
+                                </a>
+                                <a href="#" class="social-item">
+                                    <i class="bx bxl-twitter"></i>
+                                </a>
+                                <a href="#" class="social-item">
+                                    <i class="bx bxl-instagram"></i>
+                                </a>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- END FOOTER SECTION -->
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="http://localhost:3001/static/js/app.js"></script>
+    <script>
+        const baseUrl = "http://localhost:8081";
+
+
+        const url = window.location.toString();
+        const dvdID = parseInt(url.split("/").slice(-1)[0]);
+
+        $(document).ready(function () {
+            console.log("A");
+            $("#viewRatingsButton").click(function () {
+                console.log("B");
+
+
+                window.location.assign('http://localhost:3001/customerReview/' + dvdID);
+
+
+
+            });
+
+        });
+
+   
+
+        axios.get(`${baseUrl}/dvds/${dvdID}`)
+            .then((response) => {
+                // append dvd info
+                const dvd = response.data;
+                $("#dvd-profile").append(`
+                <h1>Title: ${dvd.title}</h1>
+                <p style="margin-top: 1rem;">Category: ${dvd.name}</p>
+
+                <p style="margin-top: 1rem;">Release Year: ${dvd.release_year}</p>
+                <p style="margin-top: 1rem;">Description: ${dvd.description}</p>
+
+                <p style="margin-top: 1rem;">Rating: ${dvd.rating}</p>
+                `);
+
+       
+                axios.get(`${baseUrl}/dvds/${dvdID}/actors`)
+                    .then((response) => {
+                        actors = response.data;
+                        console.log(actors)
+                        actors.forEach((actor, index) => {
+
+                            const actorHTML = `
+                        <li class="list-group-item">
+                                <p class="card-text">${actor.first_name} ${actor.last_name}</p>
+                                
+                            </li>
+                            
+                
+                        `;
+                            console.log(actorHTML)
+                            $("#actors").append(actorHTML);
+                           
+
+                        });
+
+
+                    });
+
+
+            });
+
+
+
+
+        $("#create-rating-form").submit((event) => {
+            // prevents the page from refreshing
+            event.preventDefault();
+
+            const requestBody = {
+                rating: $("#create-rating-form-rating").val(),
+                comment: $("#create-rating-form-comment").val()
+            };
+
+            // create the post
+            axios.post(`${baseUrl}/rating/${dvdID}`, requestBody)
+                .then((response) => {
+                    // reset form value.
+                    $("#create-rating-form-rating").val("");
+                    $("#create-rating-form-comment").val("");
+
+                    console.log()
+                
+
+
+
+
+                })
+
+
+        });
+
+
+        axios.get(`${baseUrl}/films/${dvdID}/rating`)
+            .then((response) => {
+                ratings = response.data;
+                console.log(ratings)
+                ratings.forEach((rating, index) => {
+
+
+                    const ratingHTML = `
+                                <div class="card" style="margin-top: 2rem;">
+                        <div class="card-body">
+                            <p class="card-text">${rating.rating}</p>
+                        </div>
+                        <div class="card-footer text-muted">
+                            ${rating.comment}
+                        </div>
+                    </div>
+                            
+                
+                        `;
+                    console.log(ratingHTML)
+                    $("#ratings").append(ratingHTML);
+                    
+                });
+            });
+
+
+
+
+    </script>
+</body>
+
+</html>

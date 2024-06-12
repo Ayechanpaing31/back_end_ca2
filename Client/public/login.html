@@ -1,0 +1,132 @@
+<!-- //DIT/FT/1B/03
+//p2235064
+//Aye Chan Paing  -->
+
+<!DOCTYPE html>
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log In</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+    <!-- Link to google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Catamaran:wght@100;400;500;600;700&family=Fira+Sans:wght@300&family=Limelight&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap" rel="stylesheet">
+   
+    <!-- Link to javascript -->
+    <script src="http://localhost:3001/static/js/login.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.min.js"></script>
+
+
+  
+
+    <link rel="stylesheet" type="text/css" href="http://localhost:3001/static/css/loginadmin.css">
+</head>
+
+<body>
+
+
+    <div class="page">
+        <div class="container">
+            <div class="left">
+                <div class="login">Admin Login</div>
+                <div class="eula">By logging in you are allowed to add necessary things to the main system.</div>
+            </div>
+            <div class="right">
+                <svg viewBox="0 0 320 300">
+                    <defs>
+                        <linearGradient inkscape:collect="always" id="linearGradient" x1="13" y1="193.49992" x2="307"
+                            y2="193.49992" gradientUnits="userSpaceOnUse">
+                            <stop style="stop-color:#ff00ff;" offset="0" id="stop876" />
+                            <stop style="stop-color:#ff0000;" offset="1" id="stop878" />
+                        </linearGradient>
+                    </defs>
+                    <path
+                        d="m 40,120.00016 239.99984,-3.2e-4 c 0,0 24.99263,0.79932 25.00016,35.00016 0.008,34.20084 -25.00016,35 -25.00016,35 h -239.99984 c 0,-0.0205 -25,4.01348 -25,38.5 0,34.48652 25,38.5 25,38.5 h 215 c 0,0 20,-0.99604 20,-25 0,-24.00396 -20,-25 -20,-25 h -190 c 0,0 -20,1.71033 -20,25 0,24.00396 20,25 20,25 h 168.57143" />
+                </svg>
+                <div class="form">
+                    <label for="email">Email</label>
+                    <input type="email" id="email">
+                    <label for="password">Password</label>
+                    <input type="password" id="password">
+                    <input type="submit" id="submit" value="Log in">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <script>
+
+        $(document).ready(function () {
+            console.log("A");
+
+            $("#submit").click(function () {
+                console.log("B");
+                var email = $("#email").val();
+                var password = $("#password").val();
+                var data = `{"email":"${email}","password":"${password}"}`;
+
+                console.log(data);
+                $.ajax({
+                    url: "http://localhost:8081/staff/login",
+                    type: "POST",
+                    data: data,
+                    contentType: "application/json",
+                    dataType: "json",
+                    success: function (data, textStatus, xhr) {
+
+                        if (data != null) {
+
+                            var token = data.token;
+                            var userData = data.UserData;
+                            localStorage.setItem("token", token);
+                            localStorage.setItem("userInfo", userData);
+                            window.location.assign("http://localhost:3001/adminHome");
+
+                        } else {
+                            console.log("Wrong Username/password");
+                           
+                            window.alert("Wrong email/password");
+
+                        }
+
+
+                    },
+                    error: function (xhr, textStatus, err) {
+                        console.log(err);
+                   
+                        window.alert("Wrong Email/password");
+                    }
+                });
+                return false;
+            });
+
+        });
+
+
+    </script>
+
+
+</body>
+
+</html>
